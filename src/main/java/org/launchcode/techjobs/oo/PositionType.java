@@ -17,6 +17,10 @@ public class PositionType {
     }
 
     // TODO: Add a custom toString() method that returns the data stored in 'value'.
+    public String toString() {
+
+        return getValue();
+    }
 
     // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when
     //  their id fields match.
