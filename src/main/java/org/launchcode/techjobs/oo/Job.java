@@ -104,4 +104,19 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
+
+    @Override
+    public String toString() {
+        String newLine = System.lineSeparator();
+        if ( name == null && employer == null && location == null && positionType == null && coreCompetency == null) return newLine + "OOPS! This job does not seem to exist.";
+        // ternary operator
+        // short for if else
+        return newLine +
+                "ID: " + ( id <= 0 ? "Data Not Available" : id) +  newLine +
+                "Name: " + ( name == null || name.isEmpty() ? "Data mot Available" : name.toString()) + newLine +
+                "Employer: " + ( employer == null ? "Data mot Available" : employer.toString()) + newLine +
+                "Location: " + (location == null ? "Data mot Available" : location.toString()) + newLine +
+                "Position Type: " + (positionType == null ? "Data mot Available" : positionType.toString()) + newLine +
+                "Core Competency: " + (coreCompetency == null ? "Data mot Available" : coreCompetency.toString()) + newLine;
+    }
 }
