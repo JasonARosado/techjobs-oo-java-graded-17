@@ -41,8 +41,9 @@ public class JobTest {
         Job job2 = new Job(jobName, employer, location, positionType, coreCompetency);
         Assertions.assertNotEquals(job1,job2);
     }
+
     @Test
-    public void testToStringStartsAndEndsWithNewLine() {
+    public void testToStringContainsCorrectLabelsAndData() {
         String newLine = System.lineSeparator();
         String actual = aJob.toString();
         String expected = newLine +
@@ -50,8 +51,27 @@ public class JobTest {
                 "Name: " + aJob.getName() + newLine +
                 "Employer: " + aJob.getEmployer() + newLine +
                 "Location: " + aJob.getLocation() + newLine +
-                "PositionType: " + aJob.getPositionType() + newLine +
+                "Position Type: " + aJob.getPositionType() + newLine +
                 "Core Competency: " + aJob.getCoreCompetency() + newLine;
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertEquals(actual, expected);
+    }
+    @Test
+    public void testToStringHandlesEmptyField() {
+        String newLine = System.lineSeparator();
+        String expected = newLine +
+                "ID: " + aJob.getId() + newLine +
+                "Name: " + "Data not available" + newLine +
+                "Employer: " + "Data not available" + newLine +
+                "Location: " + "Data not available" + newLine +
+                "Position Type: " + "Data not available" + newLine +
+                "Core Competency: " + "Data not available" + newLine;
+    }
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        String newLine = System.lineSeparator();
+        String start = String.valueOf(aJob.toString().charAt(0));
+        String end = String.valueOf(aJob.toString().charAt(aJob.toString().length() - 1));
+        Assertions.assertEquals(start, newLine);
+        Assertions.assertEquals(end, newLine);
     }
 }
